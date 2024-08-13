@@ -58,7 +58,7 @@ namespace s21 {
         void updateData(UserAction action);
 
         void setGameDataDefault();
-        SnakeGameData getModelData();
+        SnakeGameData& getModelData();
 
         using Action = void (SnakeModel::*)();
 
@@ -94,7 +94,7 @@ namespace s21 {
         
         private:
 
-        SnakeGameData s_data;
+        SnakeGameData s_data_;
         long long lastMovingTime_{};
         long long currTime_{};
         long long currDelay{};
