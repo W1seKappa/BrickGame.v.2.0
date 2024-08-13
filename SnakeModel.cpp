@@ -114,6 +114,35 @@ namespace s21 {
         }
     }
 
+    void SnakeModel::checkSnakeEating() {
+        if (s_data_.snakeBodyCoord[0] == s_data_.fruitCoord) {
+            s_data_.snakeBodyCoord.push_back({-1, 1});
+            s_data_.currScore++;
+            if (s_data_.currScore % 5 == 0 && s_data_.level < 10) {
+                s_data_.level++;
+                currDelay = GameSizes::IntervalMs[s_data_.level - 1];
+            }
+            if (s_data_.currScore > s_data_.bestScore) {
+                s_data_.bestScore = s_data_.currScore;
+            }
+            if (s_data_.currScore == 200) {
+                s_data_.isVictory = true;
+                s_data_.gameStatus = GameState::gameOver;
+            }
+            updateFruitPos();
+        }
+    }
+
+    void SnakeModel::moveHeadLeft() {
+        if (s_data_.direction == Direction::right) return;
+        s_data_.direction = Direction::left;
+        moveSnakeBody();
+        s_data_.snakeBodyCoord[0].x -= 1;
+
+        checkSnakeEating();
+        checkSnakeLife();
+        lastMovingTime_ = currTime_;
+    }
     
 
 
