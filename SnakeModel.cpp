@@ -143,7 +143,54 @@ namespace s21 {
         checkSnakeLife();
         lastMovingTime_ = currTime_;
     }
-    
+
+
+    void SnakeModel::moveHeadRight() {
+        if (s_data_.direction == Direction::left) return;
+        s_data_.direction = Direction::right;
+        moveSnakeBody();
+        s_data_.snakeBodyCoord[0].x += 1;
+
+        checkSnakeEating();
+        checkSnakeLife();
+        lastMovingTime_ = currTime_;
+    }
+
+    void SnakeModel::moveHeadUp() {
+        if (s_data_.direction == Direction::down) return;
+        s_data_.direction = Direction::up;
+        moveSnakeBody();
+        s_data_.snakeBodyCoord[0].y -= 1;
+
+        checkSnakeEating();
+        checkSnakeLife();
+        lastMovingTime_ = currTime_;
+    }
+
+    void SnakeModel::moveHeadDown() {
+        if (s_data_.direction == Direction::up) return;
+        s_data_.direction = Direction::down;
+        moveSnakeBody();
+        s_data_.snakeBodyCoord[0].y += 1;
+
+        checkSnakeEating();
+        checkSnakeLife();
+        lastMovingTime_ = currTime_;
+    }
+
+    void SnakeModel::spawn() { s_data_.gameStatus = GameState::moving;}
+
+    void SnakeModel::setPause() { s_data_.gameStatus = GameState::Pause; }
+
+    void SnakeModel::cancelPause() { s_data_.gameStatus = GameState::moving; }
+
+    void SnakeModel::exitGame() { s_data_.gameStatus = GameState::exit; }
+
+    void SnakeModel::collide() { s_data_.gameStatus = GameState::gameOver; }
+
+    void SnakeModel::startGame() { s_data_.gameStatus = GameState::spawn; }
+
+    void SnakeModel::gameOver() { s_data_.gameStatus = GameState::exit; }   
 
 
 } // namespace s21
