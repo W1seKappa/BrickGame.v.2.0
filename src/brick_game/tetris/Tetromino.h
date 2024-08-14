@@ -48,7 +48,7 @@ namespace s21 {
         std::vector<Coordinates> GetCoords() { return tCoords_; }
 
         bool operator==(const Tetromino &other) const {
-            return shape_ = other.shape_ && tCoords_ == other.tCoords_;
+            return shape_ == other.shape_ && tCoords_ == other.tCoords_;
         }
 
         bool operator!=(const Tetromino &other) const { return !(*this == other);}

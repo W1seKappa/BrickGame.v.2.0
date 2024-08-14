@@ -20,7 +20,7 @@ namespace s21 {
         nodelay(stdscr, TRUE);
         curs_set(0);
 
-        start_color()
+        start_color();
         InitColors();
     }
 

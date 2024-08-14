@@ -8,9 +8,7 @@
 #include <string>
 #include <thread>
 
-
-
-#include "../../../Constants.h"
+#include "../../../brick_game/common/Constants.h"
 
 
 namespace s21 {

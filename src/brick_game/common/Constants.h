@@ -1,4 +1,4 @@
-#ifndef BRICKGAME_CONSTANTS_H_
+#ifndef BRICKGAME_CONSTANTS_HH_
 #define BRICKGAME_CONSTANTS_HH_
 
 #include <vector>
@@ -14,7 +14,7 @@ namespace GameSizes {
     constexpr int windowWidth = 22;
     static constexpr int IntervalMs[] = { 500, 420, 340, 260, 230, 
                                             200, 180, 160, 140, 125};
-} // GameSizes
+};// GameSizes
 
 
 enum class GameState {

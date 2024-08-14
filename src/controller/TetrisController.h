@@ -6,11 +6,11 @@
 #include "../brick_game/tetris/TetrisModel.h"
 
 namespace s21 {
-class TetrisContoller {
+class TetrisController {
     public:
 
-    explicit TetrisContoller(TetrisModel *model = nullptr) : model_(model) {}
-    ~TetrisContoller() = default;
+    explicit TetrisController(TetrisModel *model = nullptr) : model_(model) {}
+    ~TetrisController() = default;
 
 
     void updateModelData(UserAction act = UserAction::noSig) {

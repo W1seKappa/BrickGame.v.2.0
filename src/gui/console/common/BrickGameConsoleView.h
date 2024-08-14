@@ -2,7 +2,6 @@
 #define BRICKGAME_GUI_COMMON_CONSOLE_VIEW_H_
 
 #include <ncurses.h>
-
 #include "../snake/SnakeConsoleView.h"
 #include "../tetris/TetrisConsoleView.h"
 #include "BaseView.h"

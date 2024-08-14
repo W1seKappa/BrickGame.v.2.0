@@ -1,8 +1,9 @@
 #ifndef BRICKGAME_GUI_TETRIS_VIEW_H_
 #define BRICKGAME_GUI_TETRIS_VIEW_H_
 
-#include "../../TetrisController.h"
+#include "../../../controller/TetrisController.h"
 #include "../common/BaseView.h"
+
 
 namespace s21 {
 

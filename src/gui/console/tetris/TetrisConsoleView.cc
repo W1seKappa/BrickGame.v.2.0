@@ -4,24 +4,24 @@ namespace s21 {
 
     TetrisConsoleView::TetrisConsoleView(TetrisController *c) : controller_(c) {
         tData_ = &controller_->GetModelData();
-        tAction_ = UserAction::NoSig;
+        tAction_ = UserAction::noSig;
     }
 
     void TetrisConsoleView::Start() {
         nodelay(stdscr, TRUE);
-        controller_->setModelDataDefault();
-        tData_ = &constroller_->GetModelData();
+        controller_->SetModelDataDefault();
+        tData_ = &controller_->GetModelData();
 
         TetrisMainLoop();
 
-        if (tData_->tGameStatus == GameState::GameOver || 
-            tData_->tGameStatus == GameState::Exit) {
-                GameResultRendering(false, tData_->tLevel, tData->tScore);
+        if (tData_->tGameStatus == GameState::gameOver || 
+            tData_->tGameStatus == GameState::exit) {
+                GameResultRendering(false, tData_->tLevel, tData_->tScore);
         }
     }
 
     void TetrisConsoleView::TetrisMainLoop() {
-        while (tData_->tGameStatus != GameState::GameOver && tData_->tGameStatus != GameState::Exit) {
+        while (tData_->tGameStatus != GameState::gameOver && tData_->tGameStatus != GameState::exit) {
             if (tData_->isModified) {
                 Rendering();
             }
@@ -32,7 +32,7 @@ namespace s21 {
     }
 
     void TetrisConsoleView::Rendering() {
-        if (tData_->tGameStatus == GameState::Start) {
+        if (tData_->tGameStatus == GameState::start) {
             StartGameRendering();
         } else if (tData_->tGameStatus == GameState::Pause) {
             PauseRendering(tData_->tLevel, tData_->tScore);
@@ -44,12 +44,12 @@ namespace s21 {
     void TetrisConsoleView::ModelConnect() {
         controller_->updateModelData(tAction_);
         TetrisGameData tmpData = controller_->GetModelData();
-        tAction_ = UserAction::NoSig;
+        tAction_ = UserAction::noSig;
     }
 
     void TetrisConsoleView::GameRendering() {
         clear();
-        GameFieldRendering(Choose::Tetris, tData_->tLevel, tData->tScore, tData_->tBestScore);
+        GameFieldRendering(Choose::Tetris, tData_->tLevel, tData_->tScore, tData_->tBestScore);
 
         for (const auto &item : tData_->tProjection.GetCoords()) {
             attron(COLOR_PAIR(8));
@@ -58,14 +58,14 @@ namespace s21 {
         }
 
 
-        for (const auto &item : tData->tCurr.GetCoords()) {
+        for (const auto &item : tData_->tCurr.GetCoords()) {
             attron(COLOR_PAIR((short)tData_->tCurr.GetShape()));
             mvprintw(item.y, item.x + 1, ".");
             attroff(COLOR_PAIR((short)tData_->tCurr.GetShape()));
         }
 
         for (const auto &item : tData_->tNext.GetCoords()) {
-            attron(COLOR_PAIR((short)tData->tNext.GetShape()));
+            attron(COLOR_PAIR((short)tData_->tNext.GetShape()));
             mvprintw(item.y + 1, item.x + 11, ".");
             attroff(COLOR_PAIR((short)tData_->tNext.GetShape()));
         }
