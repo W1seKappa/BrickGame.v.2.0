@@ -55,23 +55,23 @@ add_executable(consoleBrickGame
 target_link_libraries(consoleBrickGame ncurses)
 
 
-# add_executable(desktopBrickGame
-#         src/brick_game/snake/SnakeModel.cc
-#         src/brick_game/snake/SnakeModel.h
-#         src/controller/SnakeController.h
-#         src/brick_game/tetris/TetrisModel.h
-#         src/brick_game/tetris/TetrisModel.cc
-#         src/brick_game/tetris/Tetromino.h
-#         src/brick_game/tetris/Tetromino.cc
-#         src/controller/TetrisController.h
-#         src/gui/desktop/snake/main.cc
-#         src/gui/desktop/snake/View.cc
-#         src/gui/desktop/snake/View.h
-#         src/brick_game/common/Constants.h
-#         src/brick_game/common/BaseModel.h)
+add_executable(desktopBrickGame
+        src/brick_game/snake/SnakeModel.cc
+        src/brick_game/snake/SnakeModel.h
+        src/controller/SnakeController.h
+        src/brick_game/tetris/TetrisModel.h
+        src/brick_game/tetris/TetrisModel.cc
+        src/brick_game/tetris/Tetromino.h
+        src/brick_game/tetris/Tetromino.cc
+        src/controller/TetrisController.h
+        src/gui/desktop/main.cc
+        src/gui/desktop/View.cc
+        src/gui/desktop/View.h
+        src/brick_game/common/Constants.h
+        src/brick_game/common/BaseModel.h)
 
-# target_link_libraries(desktopBrickGame
-#         Qt::Core
-#         Qt::Gui
-#         Qt::Widgets
-# )
+target_link_libraries(desktopBrickGame
+        Qt::Core
+        Qt::Gui
+        Qt::Widgets
+)

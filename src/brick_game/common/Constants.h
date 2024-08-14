@@ -7,6 +7,7 @@
 namespace s21 {
 
 namespace GameSizes {
+    constexpr int kDotSize = 30;
     constexpr int fieldWidth = 10;
     constexpr int fieldHeight = 20;
     constexpr int sidePanelHeight = 5;
