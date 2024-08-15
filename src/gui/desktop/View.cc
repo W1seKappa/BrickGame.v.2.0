@@ -193,12 +193,12 @@ void View::UpdateTetrisModel() {
 
 void View::SnakeGameRendering() {
   QPainter qp(this);
-  QImage apple("images/apple.png");
+  QImage pear("images/pear.png");
 
-  QRectF appleRect(s_data_->fruitCoord.x * GameSizes::kDotSize,
+  QRectF pearRect(s_data_->fruitCoord.x * GameSizes::kDotSize,
                    s_data_->fruitCoord.y * GameSizes::kDotSize,
                    GameSizes::kDotSize, GameSizes::kDotSize);
-  QImage head("images/snake_head3.png");
+  QImage head("images/snakeHEAD.png");
 
   QRectF head_rect(s_data_->snakeBodyCoord[0].x * GameSizes::kDotSize,
                    s_data_->snakeBodyCoord[0].y * GameSizes::kDotSize,
@@ -213,7 +213,7 @@ void View::SnakeGameRendering() {
   }
   head = head.transformed(transform.rotate(rot));
 
-  qp.drawImage(appleRect, apple);
+  qp.drawImage(pearRect, pear);
 
   for (std::size_t i = 0; i < s_data_->snakeBodyCoord.size(); ++i) {
     qp.setBrush(QColor(148, 195, 76));
