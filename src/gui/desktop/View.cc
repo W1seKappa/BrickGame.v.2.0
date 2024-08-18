@@ -105,7 +105,6 @@ void View::ClearField() {
 }
 
 void View::GameOver(bool is_victory, int level, int score) {
-  // current_game_ = CurrentGame::kNone;
   m_timer_->stop();
   ui_->stackedWidget->setCurrentIndex(0);
   if (is_victory) {
@@ -235,7 +234,7 @@ void View::TetrisGameRendering() {
   qp.setBrush(QColor(90, 90, 90));
   qp.setPen(QColor(0, 0, 0));
 
-  // current tetromino projection
+
   qp.setBrush(kColors[0]);
   for (const auto &item : t_data_->tProjection.GetCoords()) {
     qp.drawRect((item.x) * GameSizes::kDotSize,
@@ -244,8 +243,7 @@ void View::TetrisGameRendering() {
   }
 
   qp.setBrush(QColor(148, 195, 76));
-  //  qp.setPen(QColor(0, 0, 0));
-  // current tetromino
+
   for (const auto &item : t_data_->tCurr.GetCoords()) {
     qp.setBrush(kColors[(int)t_data_->tCurr.GetShape()]);
     qp.drawRect(item.x * GameSizes::kDotSize,

@@ -6,7 +6,7 @@
 #include <iostream>
 #include <random>
 
-#include "BaseModel.h"
+#include "../common/BaseModel.h"
 
 namespace s21 {
     enum class Direction {

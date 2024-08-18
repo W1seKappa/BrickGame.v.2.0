@@ -1,7 +1,9 @@
 TEST_FLAGS= -lgtest_main -pthread -lgtest
 GCC= g++ -Wall -Wextra -Werror -std=c++17
 GCO= --coverage
-
+CC= g++ -std=c++17 -Wall -Werror -Wextra
+GTEST_INCLUDE= -I/usr/src/googletest/googletest/include
+GTEST_LIBS= -L/usr/local/lib
 SRC_DIR := .
 EXTENSIONS := cc cpp h
 # Функция для обнаружения файлов с заданными расширениями в директории и ее поддиректориях
@@ -63,6 +65,10 @@ tests:
 
 .PHONY : tests
 
+test_docker:
+	$(CC) -Wno-sign-compare $(GTEST_INCLUDE) $(GTEST_LIBS) ./tests/*.cc brick_game/snake/SnakeModel.cc brick_game/tetris/TetrisModel.cc brick_game/tetris/Tetromino.cc $(TEST_FLAGS) -o s21_tests
+
+.PHONY : test_docker
 clean:
 	$(RM_RULE)
 	rm -rf ../build ../BrickGames ../BrickGames.tgz coverage_report SnakeScore.txt TetrisScore.txt
